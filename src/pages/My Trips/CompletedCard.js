@@ -22,8 +22,7 @@ function CompletedCard({trip}) {
             headers:{
                 'Authorization':firebase.user.uid,
                 'Content-Type':'application/json'
-            },
-            withCredentials:true
+            }
         }).then((res)=>{
             setissubmit(true);
             setreview(false);

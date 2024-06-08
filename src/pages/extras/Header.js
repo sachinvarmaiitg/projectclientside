@@ -34,8 +34,7 @@ const Header = () => {
           'Authorization':currUser.uid,
           'Content-Type':'application/json'
 
-        },
-        withCredentials:true
+        }
       })
       .then(res=>{
         setValue(0);
@@ -48,8 +47,7 @@ const Header = () => {
           'Authorization':currUser.uid,
           'Content-Type':'application/json'
 
-        },
-        withCredentials:true
+        }
       })
       .then(res=>{
         if(res.data.length==0){

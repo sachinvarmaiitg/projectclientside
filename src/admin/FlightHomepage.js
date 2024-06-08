@@ -18,8 +18,7 @@ let navigate = useNavigate();
         axios.get("/admin/activeflights",{
             headers:{
                 'Content-Type':'application/json'
-            },
-            withCredentials:true
+            }
         })
         .then((res)=>{
             setflights(res.data);

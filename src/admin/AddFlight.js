@@ -40,8 +40,7 @@ const AddFlight = () => {
         axios.post("/admin/addflight",flight,{
             headers:{
                 'Authorization':firebase.token
-            },
-            withCredentials:true
+            }
         })
         .then((res)=>{
             if(res.status==200){

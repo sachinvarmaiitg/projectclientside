@@ -60,8 +60,7 @@ const TravellerDetails = ({ adult, child, flight1,flight2 }) => {
             const res=await axios.post("/payment/getorderid",option,{
                 headers:{
                     'Content-Type':'application/json'
-                },
-                withCredentials:true
+                }
             }) 
             var options = {
                 "key": process.env.REACT_APP_RAZORPAY_KEY_ID, 

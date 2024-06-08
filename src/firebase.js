@@ -72,8 +72,7 @@ export const FirebaseProvider = (props) => {
                 await axios.get("/users/updateTrips",{
                 headers:{
                     'Content-Type':'application/json'
-                },
-                    withCredentials:true
+                }
                 })
             }
             } else {

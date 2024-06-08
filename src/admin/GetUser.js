@@ -13,8 +13,7 @@ const GetUser = () => {
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':firebase.token
-            },
-            withCredentials:true
+            }
         })
         .then((res)=>{
             setUsers(res.data);

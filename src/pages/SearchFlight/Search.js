@@ -69,8 +69,7 @@ const Search = () => {
             headers: {
           'Content-Type': 'application/json',
           'Authorization': firebase.token
-        },
-        withCredentials: true
+        }
       })
       .then((res) => {
         if(res.data.length===0){
@@ -93,8 +92,7 @@ const Search = () => {
         axios.get("/users/getcities",{
             headers:{
                 'Content-Type':'application/json'
-            },
-            withCredentials:true
+            }
         }).then((res)=>{
             
             setcities(res.data);

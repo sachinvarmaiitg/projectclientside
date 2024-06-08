@@ -18,8 +18,7 @@ const BookFlights = () => {
         axios.get("/admin/getbookings",{headers:{
             'Content-Type':'application/json',
             'Authorization':firebase.token
-        },
-        withCredentials:true
+        }
         
         }).then(res=>{
           if(res.data.length!==0){

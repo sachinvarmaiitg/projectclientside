@@ -34,8 +34,7 @@ function formatISODate(isoDate) {
         headers:{
           'Content-Type':'application/json',
           'Authorization':firebase.token
-        },
-        withCredentials:true
+        }
       }).then((res)=>{
           window.location.reload();
           setsucesss(true);

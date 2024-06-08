@@ -52,8 +52,7 @@ const EditFlight = () => {
             headers:{
                 'Content-Type':'application/json', 
                 'Authorization':firebase.token
-            },
-            withCredentials:true
+            }
         })
         .then((res)=>{
             if(res.status==200){

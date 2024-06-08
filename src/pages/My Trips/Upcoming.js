@@ -14,8 +14,7 @@ const Upcoming = () => {
             headers:{
                 'Content-Type':'application/json',
                 'Authorization':user.uid
-            },
-            withCredentials:true
+            }
         })
         .then(res=>{
             setTrips(res.data);

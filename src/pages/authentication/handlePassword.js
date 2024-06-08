@@ -22,8 +22,7 @@ const HandlePass=()=>{
         const res=await axios.get("/admin/allusers",{
           headers:{
             'Content-Type':'application/json',
-          },
-          withCredentials:true
+          }
         })
         if(res){
           const users=res.data;
