@@ -63,7 +63,7 @@ const Header = () => {
   },[]);
   return (
     <header className="w-full bg-white  z-20 shadow-lg pb-8 pt-4 h-20 fixed flex justify-between ">
-      {firebase.loader && <LinearProgress/>}
+      {firebase.loader && <LinearProgress color="secondary" className="w-full absolute h-2 z-30"/>}
         <div className="flex basis-1/4  items-center justify-between ml-10 pl-2 pr-2">
           <div onClick={()=>navigate("/")}><img src="./goibibo.png" className="w-44"></img></div>
           <Link to="/flights" target="blank" className="text-blue-800 text-xl">Book a Flight now</Link>
