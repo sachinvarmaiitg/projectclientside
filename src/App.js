@@ -37,7 +37,7 @@ const admin=firebase.admin;
   return (
     <div className="App">
      {firebase.loader && <div className="w-full h-screen flex items-center justify-center">
-        <Animatedloader src="./loader.gif" alt="...loading"/>
+        <Animatedloader src="https://cdn.dribbble.com/users/1186261/screenshots/3718681/_______.gif" alt="...loading"/>
       </div>}
       {firebase.user!==0 && admin==false && <Header/>}
       <Routes>
