@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import { ToastContainer, toast } from 'react-toastify';
+import { useFirebase } from '../../firebase';
 const TravellerDetails = ({ adult, child, flight1,flight2 }) => {
      const [open, setOpen] = useState(false);
       const firebase=useFirebase();
