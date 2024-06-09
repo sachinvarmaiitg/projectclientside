@@ -1,5 +1,5 @@
 import axios from "axios"
 export default axios.create({
-    baseURL:"https://airline-1-server.vercel.app",
+    baseURL:"https://serversideproject.vercel.app",
     
 })
