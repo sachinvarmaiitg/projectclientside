@@ -29,7 +29,7 @@ const admin=firebase.admin;
   if(firebase.user===null){
     return(
       <div className="w-full h-screen flex items-center justify-center">
-        <Animatedloader src="./loader.gif" alt="...loading"/>
+        <Animatedloader src="https://cdn.dribbble.com/users/1186261/screenshots/3718681/_______.gif" alt="...loading"/>
       </div>
       
     )
