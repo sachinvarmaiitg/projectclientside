@@ -9,7 +9,7 @@ const BookFlights = () => {
     const firebase=useFirebase();
     function formatISODate(isoDate) {
                 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
-            return date.toLocaleString('en-US', options);
+            return isoDate.toLocaleString('en-US', options);
     }
       const [loader,setloader]=useState(false);
     useEffect(()=>{
