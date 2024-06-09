@@ -6,10 +6,11 @@ import { useEffect, useState } from "react";
 import FlightPrev from "./FlightPrev";
 import FarePrev from "./FarePrev";
 import TravellerDetails from "./TravellerDetails";
-
+import { useFirebase } from "../../firebase";
 
 const Booking = () => {
     const {id,adult,child}=useParams();
+  const firebase=useFirebase();
     const navigate=useNavigate()
     console.log(id);
     const [flight,setflight]=useState({})
