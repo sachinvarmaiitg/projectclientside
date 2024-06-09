@@ -25,7 +25,7 @@ const BookingSuccFlightPrev = ({flight}) => {
 }
 function formatISODate(isoDate) {
                 const options = {  hour: 'numeric', minute: 'numeric', timeZoneName: 'short',hour12:false };
-            return isoDatedate.toLocaleString('en', options);
+            return isoDate.toLocaleString('en', options);
     }
 function getDateTimeParts(flight, type) {
   if (!flight || !flight[type]) {
