@@ -19,7 +19,7 @@ const Completed = () => {
             
     })
         .catch(err=>console.log(err))
-        firebase.setloader(true);
+        firebase.setloader(false);
     }
     useEffect(()=>{
         getTrips();
