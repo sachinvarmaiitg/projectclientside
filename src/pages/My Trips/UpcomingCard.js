@@ -29,9 +29,16 @@ function formatISODate(isoDate) {
     const hours = String(date.getUTCHours()).padStart(2, '0'); 
     const minutes = String(date.getUTCMinutes()).padStart(2, '0'); 
     const formattedDate = `${day} ${month} ${year} ${hours}:${minutes}`;
-
     return formattedDate;
 }
+
+function formatISODate2(isoDate) {
+            const date = new Date(isoDate);
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+            return date.toLocaleString('en-US', options);
+    }
+
+
 
     const [hide,sethide]=useState(false);
     const handleCancel=()=>{
@@ -60,7 +67,7 @@ function formatISODate(isoDate) {
         {hide && <div className=" w-3/4 pb-10 pt-8 shadow-sm h-max shadow-orange-400 ml-40 pl-4 pr-4 ">
               <div className="flex justify-between">
                 <div><span className="font-bold">Booking Id</span> {trip?.booking._id}</div>
-                <div><span className="font-bold">Booking date </span> {formatISODate(trip?.booking.bookingDate)}</div>
+                <div><span className="font-bold">Booking date </span> {formatISODate2(trip?.booking.bookingDate).split["GMT"](0)}</div>
                 </div> 
                <div><span className="font-bold">Price Paid</span> &#x20B9;{trip?.booking.totalPrice}</div>
                {Resheduled && <div className="flex justify-between">

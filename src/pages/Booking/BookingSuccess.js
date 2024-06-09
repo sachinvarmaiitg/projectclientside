@@ -16,7 +16,7 @@ const BookingSuccess = () => {
   const [bookingid, setBookingId] = useState(localStorage.getItem("bookingid") || '');
   const [loader, setLoader] = useState(false);
   const date = new Date();
-  const curdate = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${date.getUTCDate().toString().padStart(2, '0')}`;
+  const curdate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
   const [travellerDetails, setTravellerDetails] = useState(null);
   const [err, setErr] = useState('');
 
