@@ -12,7 +12,7 @@ let [flights,setflights]=useState([]);
 function formatISODate(isoDate) {
                 const newdate=new Date(isoDate);
                 console.log(newdate);
-            return newdate.toLocaleString()
+            return newdate.toISOString()
     }
 let navigate = useNavigate();
     const getflights=()=>{
