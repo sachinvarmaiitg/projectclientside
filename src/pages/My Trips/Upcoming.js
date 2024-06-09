@@ -28,7 +28,7 @@ const Upcoming = () => {
     },[])
   return (
     <div className="pt-20 relative top-44 ">
-        {trips.length!==0 && firebase.loader===true?<p className="text-center font-bold text-2xl">Upcoming Trips</p>:<p className="text-center font-bold text-2xl">No Upcoming Trips</p>}
+        {trips.length!==0 ?<p className="text-center font-bold text-2xl">Upcoming Trips</p>:<p className="text-center font-bold text-2xl">No Upcoming Trips</p>}
         {trips && trips.map((trip,i)=>{
             return(
                 <UpcomingCard key={trip._id} trip={trip} i={i+1}/>
