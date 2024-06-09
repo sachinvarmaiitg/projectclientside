@@ -59,7 +59,7 @@ const TravellerDetails = ({ adult, child, flight1,flight2 }) => {
     }
     console.log(option.amount);
      if (validateInputs()) {
-          firebase.setloader(true)
+          
             const res=await axios.post("/payment/getorderid",option,{
                 headers:{
                     'Content-Type':'application/json'
@@ -82,7 +82,7 @@ const TravellerDetails = ({ adult, child, flight1,flight2 }) => {
                     if(validateRes.data.msg==='success'){
                         window.localStorage.setItem('travelBody',JSON.stringify([adultData,childData,option,contactInfo]));
                         flight2?navigate(`/booking/${flight1._id}/${flight2._id}/${validateRes.data.orderId}/${validateRes.data.paymentId}`,{replace:true}):
-                             firebase.setloader(false);
+                             
                         navigate(`/booking/${flight1._id}/${validateRes.data.orderId}/${validateRes.data.paymentId}`,{replace:true});
                     }
                 },

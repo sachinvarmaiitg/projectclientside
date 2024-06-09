@@ -7,6 +7,7 @@ const Completed = () => {
     const firebase=useFirebase();
     const user=firebase.user;
     const getTrips=()=>{
+        firebase.setloader(true);
         axios.get("/users/getcompTrips",{
             headers:{
                 'Content-Type':'application/json',
@@ -15,8 +16,10 @@ const Completed = () => {
         })
         .then(res=>{
             setTrips(res.data);
+            
     })
         .catch(err=>console.log(err))
+        firebase.setloader(true);
     }
     useEffect(()=>{
         getTrips();
