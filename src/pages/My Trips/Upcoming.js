@@ -27,7 +27,7 @@ const Upcoming = () => {
     useEffect(()=>{
         getTrips();
     },[])
-    if(loader){
+    if(firebase.loader){
         return <CircularProgress></CircularProgress>
     }
   return (

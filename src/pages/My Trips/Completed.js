@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import { useFirebase } from "../../firebase";
 import axios from "../../axios";
 import CompletedCard from "./CompletedCard";
+import { CircularProgress } from "@mui/material";
 const Completed = () => {
     const [trips,setTrips]=useState([]);
     const firebase=useFirebase();
@@ -24,7 +25,7 @@ const Completed = () => {
     useEffect(()=>{
         getTrips();
     },[])
-     if(loader){
+     if(firebase.loader){
         return <CircularProgress></CircularProgress>
     }
   return (
