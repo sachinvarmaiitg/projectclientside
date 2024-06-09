@@ -74,8 +74,7 @@ const TravellerDetails = ({ adult, child, flight1,flight2 }) => {
                     const validateRes=await axios.post("/payment/validatePayment",body,{
                         headers:{
                             'Content-Type':'application/json'
-                        },
-                        withCredentials:true
+                        }
                     })
                     if(validateRes.data.msg==='success'){
                         window.localStorage.setItem('travelBody',JSON.stringify([adultData,childData,option,contactInfo]));
