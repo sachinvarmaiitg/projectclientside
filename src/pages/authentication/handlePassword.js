@@ -37,7 +37,8 @@ const HandlePass=()=>{
     
         })
         .catch(err=>{
-            setErr(err);
+            console.log(err);
+            setErr("error from firebase");
             setloader(false);
         })
             }
