@@ -12,14 +12,14 @@ const EditFlight = () => {
     const {id}=useParams();
     const {flight}=location.state;
     const f=flight;
-      var date = f.departureDateTime;
-    var date2=f.arrivalDateTime;
+      var date = new Date(f.departureDateTime);
+    var date2=new Date(f.arrivalDateTime);
 
-     const curdate=`${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
+     const curdate=`${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${date.getUTCDate.toString().padStart(2, '0')}`;
      
-    const curtime=`${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-    const curdate2=`${date2.getFullYear()}-${(date2.getMonth() + 1).toString().padStart(2, '0')}-${date2.getDate().toString().padStart(2, '0')}`;
-    const curtime2=`${date2.getHours().toString().padStart(2, '0')}:${date2.getMinutes().toString().padStart(2, '0')}`;
+    const curtime=`${date.getUTCHours().toString().padStart(2, '0')}:${date.getUTCMinutes().toString().padStart(2, '0')}`;
+    const curdate2=`${date2.getUTCFullYear()}-${(date2.getUTCMonth() + 1).toString().padStart(2, '0')}-${date2.getUTCDate.toString().padStart(2, '0')}`;
+    const curtime2=`${date2.getUTCHours().toString().padStart(2, '0')}:${date2.getUTCMinutes().toString().padStart(2, '0')}`;
     const [err,setErr]=useState('');
     const [flight2, setFlight] = useState({
         AName: f.airline,

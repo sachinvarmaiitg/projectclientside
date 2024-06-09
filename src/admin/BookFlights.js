@@ -8,9 +8,16 @@ const BookFlights = () => {
     const [BookFlights,setBookFlights]=useState([]);
     const firebase=useFirebase();
     function formatISODate(isoDate) {
-                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
-            return isoDate.toLocaleString('en-US', options);
-    }
+    const date = new Date(isoDate);
+    const day = date.getUTCDate();
+    const month = date.toLocaleString('default', { month: 'long' });
+    const year = date.getUTCFullYear();
+    const hours = date.getUTCHours();
+    const minutes = String(date.getUTCMinutes()).padStart(2, '0'); 
+    const formattedDate = `${day} ${month} ${year} ${hours}:${minutes}`;
+
+    return formattedDate;
+}
       const [loader,setloader]=useState(false);
     useEffect(()=>{
       setloader(true);

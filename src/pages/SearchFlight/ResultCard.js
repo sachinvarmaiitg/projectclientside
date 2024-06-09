@@ -5,10 +5,16 @@ import { Rating } from "@mui/material";
 import ReviewsCard from "./ReviewsCard";
 const ResultCard = ({flightdata,a,c,w}) => {
     function formatISODate(isoDate) {
-            
-                const options = {hour: 'numeric', minute: 'numeric',hour12:false };
-            return isoDate.toLocaleString('en-US', options);
-    }
+    const date = new Date(isoDate);
+    const day = date.getUTCDate();
+    const month = date.toLocaleString('default', { month: 'long' });
+    const year = date.getUTCFullYear();
+    const hours = date.getUTCHours();
+    const minutes = String(date.getUTCMinutes()).padStart(2, '0'); 
+    const formattedDate = `${day} ${month} ${year} ${hours}:${minutes}`;
+
+    return formattedDate;
+}
     function getTimeDifference(date1, date2) {
         const d1 = new Date(date1);
         const d2 = new Date(date2);
