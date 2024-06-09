@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../axios";
+import moment from "moment-timezone";
  import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import Header from "./Header";
@@ -9,9 +10,8 @@ import Header from "./Header";
 const FlightHomepage = () => {
 let [flights,setflights]=useState([]);
 function formatISODate(isoDate) {
-                const newdate=new Date(isoDate);
-                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
-            return newdate.toLocaleString('en-US',options)
+                const newdate=moment.tz(isoDate,'Asia/Kolkata');
+                return newdate.format('dddd, MMMM Do YYYY, h:mm a');
     }
 let navigate = useNavigate();
     const getflights=()=>{
