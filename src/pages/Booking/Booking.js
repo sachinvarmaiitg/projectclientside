@@ -14,6 +14,7 @@ const Booking = () => {
     console.log(id);
     const [flight,setflight]=useState({})
     const getFlight=()=>{
+      firebase.setloader(true);
         axios.get(`/users/getbreview/${id}`,{
             headers:{
                 'Content-Type':'application/json'
@@ -21,25 +22,31 @@ const Booking = () => {
         })
         .then((res)=>{
             setflight(res.data);
+          firebase.setloader(false);
         })
         .catch((err)=>{
             toast(err.response.data.msg);
             navigate("/flights/result");
             });
+      
     }
     useEffect(()=>{
         getFlight();
     },[])
-  return (
-    <div className="flex flex-wrap h-full">
-    <div className="flex justify-around w-full mt-24">
-        <FlightPrev flight={flight}/>
-        <FarePrev flight1={flight} a={adult} c={child}/>
-    </div>
-        <TravellerDetails adult={adult} child={child} flight1={flight}/>
-        <ToastContainer/>
-    </div>
-  )
+ if (!firebase.loader) {
+    return (
+        <div className="flex flex-wrap h-full">
+            <div className="flex justify-around w-full mt-24">
+                <FlightPrev flight={flight} />
+                <FarePrev flight1={flight} a={adult} c={child} />
+            </div>
+            <TravellerDetails adult={adult} child={child} flight1={flight} />
+            <ToastContainer />
+        </div>
+    );
+}
+
+return null;
 };
 
 export default Booking;
