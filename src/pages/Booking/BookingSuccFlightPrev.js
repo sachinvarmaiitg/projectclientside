@@ -18,7 +18,7 @@ function formatISODate(isoDate) {
     const day = date.getUTCDate();
     const month = date.toLocaleString('default', { month: 'long' });
     const year = date.getUTCFullYear();
-    const hours = date.getUTCHours();
+    const hours = String(date.getUTCHours()).padStart(2, '0'); 
     const minutes = String(date.getUTCMinutes()).padStart(2, '0'); 
     const formattedDate = `${day} ${month} ${year} ${hours}:${minutes}`;
 

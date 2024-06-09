@@ -42,14 +42,14 @@ const ResultCard = ({flightdata,a,c,w}) => {
         <div className="flex w-4/5 items-center justify-around">
             <div className="flex flex-col">
                 <span className="m">{flightdata.departureAirport}</span>
-                <span className="font-semibold text-xl">{formatISODate(flightdata.departureDateTime)}</span>
+                <span className="font-semibold text-md">{formatISODate(flightdata.departureDateTime)}</span>
             </div>
             <div >
                 <span className="font-medium">{getTimeDifference(flightdata.departureDateTime,flightdata.arrivalDateTime)}</span>
             </div>
             <div className="flex flex-col">
                 <span className="m">{flightdata.arrivalAirport}</span>
-                <span className="font-semibold text-xl">{formatISODate(flightdata.arrivalDateTime)}</span>
+                <span className="font-semibold text-md">{formatISODate(flightdata.arrivalDateTime)}</span>
             </div>
             <div >
                 <span className="font-semibold text-xl">&#8377;{flightdata.price.toLocaleString("en-IN")}</span>

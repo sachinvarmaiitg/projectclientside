@@ -11,10 +11,16 @@ function CompletedCard({trip}) {
     const [text,settext]=useState("");
     const [issubmit,setissubmit]=useState(false);
     function formatISODate(isoDate) {
-            const date = new Date(isoDate);
-                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
-            return date.toLocaleString('en-US', options);
-    }
+    const date = new Date(isoDate);
+    const day = date.getUTCDate();
+    const month = date.toLocaleString('default', { month: 'long' });
+    const year = date.getUTCFullYear();
+    const hours = String(date.getUTCHours()).padStart(2, '0'); 
+    const minutes = String(date.getUTCMinutes()).padStart(2, '0'); 
+    const formattedDate = `${day} ${month} ${year} ${hours}:${minutes}`;
+
+    return formattedDate;
+}
     const handleSubmit=(e)=>{
         e.preventDefault();
         console.log({tripid:trip._id,rating,text});
@@ -60,12 +66,12 @@ function CompletedCard({trip}) {
       <div className="flight-details ">
         <div className="departure">
           <h3>DEPARTURE</h3>
-          <p>{formatISODate(trip.departureDateTime).split("GMT")[0]}</p>
+          <p>{formatISODate(trip.departureDateTime)}</p>
           <p>{trip.flightid.departureAirport}</p>
         </div>
         <div className="arrival">
           <h3>ARRIVAL</h3>
-          <p>{formatISODate(trip.arrivalDateTime).split("GMT")[0]}</p>
+          <p>{formatISODate(trip.arrivalDateTime)}</p>
           <p>{trip.flightid.arrivalAirport}</p>
         </div>
         <div className="airline">
