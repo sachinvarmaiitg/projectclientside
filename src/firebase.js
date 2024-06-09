@@ -25,6 +25,7 @@ export const FirebaseProvider = (props) => {
     const [user, setUser] = useState(null);
     const [admin, setadmin] = useState(false);
     const [token, setToken] = useState('');
+  const [loader,setloader]=useState(false);
 
     async function upload(file, user, setLoading) {
         const fileRef = ref(storage, user.uid + '.jpeg');
@@ -103,6 +104,8 @@ export const FirebaseProvider = (props) => {
                 setUser,
                 firebaseAuth,
                 upload,
+              loader,
+              setloader,
                 updateProfileWithVerification,
                 verifyEmail,
                 admin,
