@@ -11,8 +11,9 @@ const FlightHomepage = () => {
 let [flights,setflights]=useState([]);
 function formatISODate(isoDate) {
                 const newdate=new Date(isoDate);
+                console.log({isoDate,newdate});
                 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
-            return newdate.toLocaleString('en-US',options)
+            return isoDate.toLocaleString('en-US',options)
     }
 let navigate = useNavigate();
     const getflights=()=>{
