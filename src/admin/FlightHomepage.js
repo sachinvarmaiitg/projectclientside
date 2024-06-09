@@ -10,8 +10,9 @@ import Header from "./Header";
 const FlightHomepage = () => {
 let [flights,setflights]=useState([]);
 function formatISODate(isoDate) {
-                const newdate=moment.tz(isoDate,'Asia/Kolkata');
-                return newdate.format('dddd, MMMM Do YYYY, h:mm a');
+                const newdate=new Date(isoDate);
+                console.log(newdate);
+            return newdate.toLocaleString()
     }
 let navigate = useNavigate();
     const getflights=()=>{
