@@ -21,6 +21,7 @@ import Header from "./pages/extras/Header.js";
 import EditFlight from "./admin/EditFlight.js";
 import BookFlights from "./admin/BookFlights.js";
 import TripsPage from "./pages/My Trips/TripsPage.js";
+import { Avatar, LinearProgress } from "@mui/material";
 function App() {
 const firebase=useFirebase()
 const admin=firebase.admin;
@@ -34,6 +35,7 @@ const admin=firebase.admin;
   }
   return (
     <div className="App">
+     {firebase.loader && <LinearProgress color="secondary" className="w-full absolute h-2 z-30"/>}
       {firebase.user!==0 && admin==false && <Header/>}
       <Routes>
         <Route path="/admin" element={admin?<Admin/>:<Navigate to="/adminlogin"/>}/>
