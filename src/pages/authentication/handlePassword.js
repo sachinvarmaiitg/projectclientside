@@ -29,7 +29,7 @@ const HandlePass=()=>{
           const found=users.some(user=>user.email===email);
             if(found){
               sendPasswordResetEmail(firebase.firebaseAuth,email,{
-            url:"http://localhost:3000/login"
+            url:"https://projectclientside.vercel.app/login"
         })
         .then((res)=>{
             setsent(true);
