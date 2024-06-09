@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
 import { Avatar } from "@mui/material";
 import axios from "../../axios";
-import LinearProgress from '@mui/material';
+import {LinearProgress} from '@mui/material';
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [notiValue,setValue]=useState(0);
