@@ -10,11 +10,16 @@ import Header from "./Header";
 const FlightHomepage = () => {
 let [flights,setflights]=useState([]);
 function formatISODate(isoDate) {
-                const newdate=new Date(isoDate);
-                console.log({isoDate,newdate});
-                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
-            return isoDate.toLocaleString('en-US',options)
-    }
+    const date = new Date(isoDate);
+    const day = date.getUTCDate();
+    const month = date.toLocaleString('default', { month: 'long' });
+    const year = date.getUTCFullYear();
+    const hours = date.getUTCHours();
+    const minutes = date.getUTCMinutes();
+    const formattedDate = `${day} ${month} ${year} ${hours}:${minutes}`;
+
+    return formattedDate;
+}
 let navigate = useNavigate();
     const getflights=()=>{
         axios.get("/admin/activeflights",{
