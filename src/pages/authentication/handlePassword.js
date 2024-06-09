@@ -56,7 +56,7 @@ const HandlePass=()=>{
       <>
          {loader && <LinearProgress color="secondary" className="w-full h-2"/>}
          <div style={{backgroundImage:"url('./login.jpg')"}} className="w-full h-screen bg-cover flex justify-center items-center flex-wrap ">
-      {err.length===0?"":<div className="w-96 h-8 bg-red-700 absolute top-40 text-white text-center rounded pt-1"><FontAwesomeIcon icon={faXmarkCircle} className="mr-2"/>{err.toLocaleUpperCase()}</div>}
+      {err.length===0?"":<div className="w-96 h-8 bg-red-700 absolute top-40 text-white text-center rounded pt-1"><FontAwesomeIcon icon={faXmarkCircle} className="mr-2"/>{err}</div>}
         <div className="h-80 w-96 bg-white/75  text-center flex flex-wrap justify-center items-center">
           {sent?<div className="text-xl">
             Password reset link sent to your email!    
