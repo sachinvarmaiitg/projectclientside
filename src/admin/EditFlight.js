@@ -12,8 +12,8 @@ const EditFlight = () => {
     const {id}=useParams();
     const {flight}=location.state;
     const f=flight;
-      var date = new Date(f.departureDateTime);
-    var date2=new Date(f.arrivalDateTime);
+      var date = f.departureDateTime;
+    var date2=f.arrivalDateTime;
 
      const curdate=`${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
      
