@@ -4,6 +4,7 @@ import BookingSuccFlightPrev from "../Booking/BookingSuccFlightPrev";
 import Header from "../extras/Header";
 import { useFirebase } from "../../firebase";
 import UpcomingCard from "./UpcomingCard";
+import { CircularProgress } from "@mui/material";
 
 const Upcoming = () => {
     const [trips,setTrips]=useState([]);
@@ -26,6 +27,9 @@ const Upcoming = () => {
     useEffect(()=>{
         getTrips();
     },[])
+    if(loader){
+        return <CircularProgress></CircularProgress>
+    }
   return (
     <div className="pt-20 relative top-44 ">
         {trips.length!==0 ?<p className="text-center font-bold text-2xl">Upcoming Trips</p>:<p className="text-center font-bold text-2xl">No Upcoming Trips</p>}

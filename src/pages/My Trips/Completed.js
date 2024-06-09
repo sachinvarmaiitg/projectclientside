@@ -24,6 +24,9 @@ const Completed = () => {
     useEffect(()=>{
         getTrips();
     },[])
+     if(loader){
+        return <CircularProgress></CircularProgress>
+    }
   return (
     <div className="pt-20 relative top-44 flex flex-wrap justify-center ">
         {trips.length!==0?<p className="text-center font-bold text-2xl w-full">
