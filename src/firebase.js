@@ -37,7 +37,7 @@ export const FirebaseProvider = (props) => {
 
     async function verifyEmail(user, setEditEmail) {
         const res = await sendEmailVerification(user, {
-            url: "http://localhost:3000/profile"
+            url: "https://projectclientside.vercel.app/profile"
         });
         console.log(res);
     }
@@ -47,7 +47,7 @@ export const FirebaseProvider = (props) => {
         await updateProfile(user, { displayName });
         if (email !== user.email) {
             verifyBeforeUpdateEmail(user, email, {
-                url: "http://localhost:3000/profile"
+                url: "https://projectclientside.vercel.app/profile"
             })
                 .then(() => {
                     window.alert("Verification sent to provided email.");
