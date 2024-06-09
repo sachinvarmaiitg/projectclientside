@@ -8,7 +8,6 @@ const BookFlights = () => {
     const [BookFlights,setBookFlights]=useState([]);
     const firebase=useFirebase();
     function formatISODate(isoDate) {
-            const date = new Date(isoDate);
                 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
             return date.toLocaleString('en-US', options);
     }

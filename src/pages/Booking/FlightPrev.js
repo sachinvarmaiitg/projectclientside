@@ -14,9 +14,8 @@ function extractDateTimeParts(dateTimeStr) {
 
 
 function formatISODate(isoDate) {
-            const date = new Date(isoDate);
                 const options = {  hour: 'numeric', minute: 'numeric', timeZoneName: 'short',hour12:false };
-            return date.toLocaleString('en-IN', options);
+            return isoDate.toLocaleString('en-US', options);
     }
      function getTimeDifference(date1, date2) {
         const d1 = new Date(date1);

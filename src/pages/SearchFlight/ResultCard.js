@@ -5,9 +5,9 @@ import { Rating } from "@mui/material";
 import ReviewsCard from "./ReviewsCard";
 const ResultCard = ({flightdata,a,c,w}) => {
     function formatISODate(isoDate) {
-            const date = new Date(isoDate);
+            
                 const options = {hour: 'numeric', minute: 'numeric',hour12:false };
-            return date.toLocaleString('en-US', options);
+            return isoDate.toLocaleString('en-US', options);
     }
     function getTimeDifference(date1, date2) {
         const d1 = new Date(date1);

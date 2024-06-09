@@ -5,10 +5,8 @@ import FmdGoodIcon from '@mui/icons-material/FmdGood';
 const BookingSuccFlightPrev = ({flight}) => {
 
    function extractDateTimeParts(dateTimeStr) {
-  const dateTimeUTC = new Date(dateTimeStr);
-  const dateTimeLocal = new Date(dateTimeUTC.toLocaleString());
-  const date = dateTimeLocal.toLocaleDateString();
-  const time = dateTimeLocal.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const date = dateTimeStr.toLocaleDateString();
+  const time = dateTimeStr.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   return { date, time };
 }
 
@@ -24,9 +22,8 @@ const BookingSuccFlightPrev = ({flight}) => {
         return `${diffHours}h${diffMinutes}m`;
 }
 function formatISODate(isoDate) {
-            const date = new Date(isoDate);
                 const options = {  hour: 'numeric', minute: 'numeric', timeZoneName: 'short',hour12:false };
-            return date.toLocaleString('en', options);
+            return isoDate.toLocaleString('en', options);
     }
 function getDateTimeParts(flight, type) {
   if (!flight || !flight[type]) {
