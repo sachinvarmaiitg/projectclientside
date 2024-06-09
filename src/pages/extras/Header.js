@@ -63,7 +63,7 @@ const Header = () => {
   },[]);
   return (
     <>
-     {firebase.loader && <LinearProgress color="secondary" className="w-full absolute h-2 z-30"/>}
+    
     <header className="w-full bg-white  z-20 shadow-lg pb-8 pt-4 h-20 fixed flex justify-between ">
      
         <div className="flex basis-1/4  items-center justify-between ml-10 pl-2 pr-2">
