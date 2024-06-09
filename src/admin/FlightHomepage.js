@@ -11,7 +11,7 @@ let [flights,setflights]=useState([]);
 function formatISODate(isoDate) {
             const date = new Date(isoDate);
                 const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
-            return date.toLocaleString('en-US', options);
+            return date.toString('en-US', options);
     }
 let navigate = useNavigate();
     const getflights=()=>{
