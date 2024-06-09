@@ -67,7 +67,7 @@ function formatISODate2(isoDate) {
         {hide && <div className=" w-3/4 pb-10 pt-8 shadow-sm h-max shadow-orange-400 ml-40 pl-4 pr-4 ">
               <div className="flex justify-between">
                 <div><span className="font-bold">Booking Id</span> {trip?.booking._id}</div>
-                <div><span className="font-bold">Booking date </span> {formatISODate2(trip?.booking.bookingDate).split["GMT"](0)}</div>
+                <div><span className="font-bold">Booking date </span> {formatISODate2(trip?.booking.bookingDate).split("GMT")[0]}</div>
                 </div> 
                <div><span className="font-bold">Price Paid</span> &#x20B9;{trip?.booking.totalPrice}</div>
                {Resheduled && <div className="flex justify-between">

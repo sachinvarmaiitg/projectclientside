@@ -34,7 +34,7 @@ const ResultCard = ({flightdata,a,c,w}) => {
         navigate(`/flights/review/${flightdata._id}/${a}/${c}`);
     }
   return (
-    <div className="flex flex-wrap justify-center w-1/2 shadow-lg shadow-blue-300 border-2 border-yellow-300  mb-16">
+    <div className="flex flex-wrap justify-center w-3/4 shadow-lg shadow-blue-300 border-2 border-yellow-300  mb-16">
         <div className="w-full pl-24">
             <span className="mr-2">{flightdata.airline}</span>
             <span>{flightdata.flightNumber}</span>
