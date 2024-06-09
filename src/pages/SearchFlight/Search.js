@@ -65,6 +65,7 @@ const Search = () => {
           toast.error("can't book more than 10 peoples",{position:"top-center"})
         }
         else{
+            firebase.setloader(true)
              axios.post("/users/searchresults",obj, {
             headers: {
           'Content-Type': 'application/json',
@@ -82,6 +83,7 @@ const Search = () => {
           window.localStorage.setItem('resultdata',JSON.stringify(res.data));
           navigate("/flights/result")
         }
+          firebase.setloader(false);
        
       })
       .catch(err => "err");
