@@ -10,6 +10,7 @@ const Upcoming = () => {
     const firebase=useFirebase();
     const user=firebase.user;
     const getTrips=()=>{
+        firebase.setloader(true);
         axios.get("/users/getupcomingtrips",{
             headers:{
                 'Content-Type':'application/json',
@@ -20,13 +21,14 @@ const Upcoming = () => {
             setTrips(res.data);
     })
         .catch(err=>console.log(err))
+        firebase.setloader(false);
     }
     useEffect(()=>{
         getTrips();
     },[])
   return (
     <div className="pt-20 relative top-44 ">
-        {trips.length!==0?<p className="text-center font-bold text-2xl">Upcoming Trips</p>:<p className="text-center font-bold text-2xl">No Upcoming Trips</p>}
+        {trips.length!==0 && firebase.loader===true?<p className="text-center font-bold text-2xl">Upcoming Trips</p>:<p className="text-center font-bold text-2xl">No Upcoming Trips</p>}
         {trips && trips.map((trip,i)=>{
             return(
                 <UpcomingCard key={trip._id} trip={trip} i={i+1}/>
