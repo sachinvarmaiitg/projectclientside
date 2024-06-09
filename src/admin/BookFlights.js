@@ -4,7 +4,10 @@ import axios from "../axios";
 import Header from "./Header";
 import { useFirebase } from "../firebase";
 
-function formatISODate(isoDate) {
+const BookFlights = () => {
+    const [BookFlights,setBookFlights]=useState([]);
+    const firebase=useFirebase();
+    function formatISODate(isoDate) {
     const date = new Date(isoDate);
     const day = date.getUTCDate();
     const month = date.toLocaleString('default', { month: 'long' });
