@@ -9,9 +9,8 @@ import Header from "./Header";
 const FlightHomepage = () => {
 let [flights,setflights]=useState([]);
 function formatISODate(isoDate) {
-            const date = new Date(isoDate);
-                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
-            return date.toString('en-US', options);
+                const options = {  year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric'};
+            return isoDate.toString('en-US', options);
     }
 let navigate = useNavigate();
     const getflights=()=>{
