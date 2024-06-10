@@ -41,8 +41,7 @@ function CompletedCard({trip}) {
             headers:{
                 'Authorization':firebase.user.uid,
                 'Content-Type':'application/json'
-            },
-            withCredentials:true
+            }
         }).then((res)=>{
             console.log(res.data);
             if(res.data.length){
