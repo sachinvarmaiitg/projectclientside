@@ -32,17 +32,17 @@ const ResultCard = ({flightdata,a,c,w}) => {
         navigate(`/flights/review/${flightdata._id}/${a}/${c}`);
     }
   return (
-    <div className="flex flex-wrap justify-center w-3/4  shadow-lg shadow-blue-300 border-2 border-yellow-300  mb-16">
-        <div className="w-full pl-24">
+    <div className="flex flex-wrap justify-center md:w-3/4 w-full  shadow-lg shadow-blue-300 border-2 border-yellow-300 mb-16">
+        <div className="w-full md:pl-24 pl-14 ">
             <span className="mr-2">{flightdata.airline}</span>
             <span>{flightdata.flightNumber}</span>
         </div>
-        <div className="flex w-4/5 items-center justify-around">
-            <div className="flex flex-col">
+        <div className="flex md:w-4/5 w-3/4 items-center md:justify-around ">
+            <div className="flex flex-col md:mr-0 mr-6">
                 <span className="m">{flightdata.departureAirport}</span>
                 <span className="font-semibold text-md">{formatISODate(flightdata.departureDateTime)}</span>
             </div>
-            <div >
+            <div className="md:block hidden">
                 <span className="font-medium">{getTimeDifference(flightdata.departureDateTime,flightdata.arrivalDateTime)}</span>
             </div>
             <div className="flex flex-col">
@@ -53,7 +53,7 @@ const ResultCard = ({flightdata,a,c,w}) => {
                 <span className="font-semibold text-xl">&#8377;{flightdata.price.toLocaleString("en-IN")}</span>
             </div>
             <div >
-                <button className="bg-orange-400 w-20 text-white font-bold rounded-md" onClick={handleReview}>Book</button>
+                <button className="bg-orange-400 w-20 text-white font-bold rounded-md md:ml-0 ml-2" onClick={handleReview}>Book</button>
             </div>
         </div>
         <div className="w-full flex justify-end pr-24">
