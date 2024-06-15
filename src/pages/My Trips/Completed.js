@@ -17,10 +17,11 @@ const Completed = () => {
         })
         .then(res=>{
             setTrips(res.data);
+              firebase.setloader(false);
             
     })
         .catch(err=>console.log(err))
-        firebase.setloader(false);
+      
     }
     useEffect(()=>{
         getTrips();
