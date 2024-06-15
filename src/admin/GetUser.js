@@ -30,9 +30,6 @@ const GetUser = () => {
      <div id="outer" className="flex flex-col items-center">
             {loader && <LinearProgress color="secondary" className="z-90" />}
             <Header />
-            <div className="pt-20 text-center mb-5">
-                Click on Booked Flights to see which user booked which flight
-            </div>
             {users.map((user, n) => (
                 <Card key={user.uid} className="shadow-md w-96 m-4">
                     <CardContent>
