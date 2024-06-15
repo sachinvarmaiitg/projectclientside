@@ -5,10 +5,12 @@ import moment from "moment-timezone";
  import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import Header from "./Header";
+import { CircularProgress } from "@mui/material";
 
   
 const FlightHomepage = () => {
 let [flights,setflights]=useState([]);
+const [progress,setprogress]=useState(false);
 function formatISODate(isoDate) {
     const date = new Date(isoDate);
     const day = date.getUTCDate();
@@ -22,6 +24,7 @@ function formatISODate(isoDate) {
 }
 let navigate = useNavigate();
     const getflights=()=>{
+        setprogress(true);
         axios.get("/admin/activeflights",{
             headers:{
                 'Content-Type':'application/json'
@@ -29,12 +32,26 @@ let navigate = useNavigate();
         })
         .then((res)=>{
             setflights(res.data);
+            setprogress(false);
         })
         .catch(err=>console.log(err));
     }
     useEffect(()=>{
         getflights();
     },[]);
+
+
+     if(progress){
+        return (
+          <>
+            <Header/>
+            <div className="pt-20 relative top-44 flex justify-center">
+                <CircularProgress/>
+            </div>
+          </>
+        )
+    }
+
   return (
     <div>
       <Header/>

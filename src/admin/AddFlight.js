@@ -61,11 +61,14 @@ const AddFlight = () => {
         })
     }
 
-      if(progress){
+    if(progress){
         return (
+          <>
+            <Header/>
             <div className="pt-20 relative top-44 flex justify-center">
                 <CircularProgress/>
             </div>
+          </>
         )
     }
 
