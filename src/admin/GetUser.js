@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import React from 'react';
-import { LinearProgress, Card, CardContent, Typography, Box } from '@material-ui/core';
+import {Card, CardContent, Typography, Box } from '@material-ui/core';
 import axios from "../axios";
 import { LinearProgress } from "@mui/material";
 import { useFirebase } from "../firebase";
