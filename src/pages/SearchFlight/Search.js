@@ -8,7 +8,6 @@ import { TextField } from '@mui/material';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
-import Header from '../extras/Header';
 import { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -16,7 +15,6 @@ import Autocomplete from '@mui/material/Autocomplete';
 import './search.css';
 import axios from '../../axios';
 import { useFirebase } from '../../firebase';
-import ResultsPage from './ResultsPage';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Search = () => {

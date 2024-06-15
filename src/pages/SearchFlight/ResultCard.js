@@ -1,8 +1,6 @@
 import { useState } from "react";
-import ResultCard2 from "./ResultCard2";
 import { useNavigate } from "react-router-dom";
 import { Rating } from "@mui/material";
-import ReviewsCard from "./ReviewsCard";
 const ResultCard = ({flightdata,a,c,w}) => {
     function formatISODate(isoDate) {
     const date = new Date(isoDate);
