@@ -11,6 +11,7 @@ const EditFlight = () => {
     const firebase=useFirebase();
     const {id}=useParams();
     const {flight}=location.state;
+     const [progress,setprogress]=useState(false);
     const f=flight;
       var date = new Date(f.departureDateTime);
     var date2=new Date(f.arrivalDateTime);
@@ -47,6 +48,7 @@ const EditFlight = () => {
     }
 
     const handleSubmit = (e) => {
+        setprogress(true);
         e.preventDefault();
         axios.post("/admin/editFlight",{flight2,id},{
             headers:{
@@ -56,14 +58,24 @@ const EditFlight = () => {
         })
         .then((res)=>{
             if(res.status==200){
+                setprogress(false);
                 console.log("edited");
                 navigate("/admin");
             }
         }).
         catch(err=>{
+            setprogress(false);
             console.log(err);
             setErr(err.response.data.msg);
         })
+    }
+
+    if(progress){
+        return (
+            <div className="pt-20 relative top-44 flex justify-center">
+                <CircularProgress/>
+            </div>
+        )
     }
 
     return (

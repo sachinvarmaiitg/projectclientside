@@ -7,20 +7,19 @@ import { useFirebase } from "../firebase";
 const BookFlights = () => {
     const [BookFlights,setBookFlights]=useState([]);
     const firebase=useFirebase();
+    const [progress,setprogress]=useState(false);
     function formatISODate(isoDate) {
-    const date = new Date(isoDate);
-    const day = date.getUTCDate();
-    const month = date.toLocaleString('default', { month: 'long' });
-    const year = date.getUTCFullYear();
-    const hours = String(date.getUTCHours()).padStart(2, '0'); 
-    const minutes = String(date.getUTCMinutes()).padStart(2, '0'); 
-    const formattedDate = `${day} ${month} ${year} ${hours}:${minutes}`;
-
-    return formattedDate;
-}
-      const [loader,setloader]=useState(false);
+      const date = new Date(isoDate);
+      const day = date.getUTCDate();
+      const month = date.toLocaleString('default', { month: 'long' });
+      const year = date.getUTCFullYear();
+      const hours = String(date.getUTCHours()).padStart(2, '0'); 
+      const minutes = String(date.getUTCMinutes()).padStart(2, '0'); 
+      const formattedDate = `${day} ${month} ${year} ${hours}:${minutes}`;
+      return formattedDate;
+    }
     useEffect(()=>{
-      setloader(true);
+      setprogress(true);
         axios.get("/admin/getbookings",{headers:{
             'Content-Type':'application/json',
             'Authorization':firebase.token
@@ -28,18 +27,26 @@ const BookFlights = () => {
         
         }).then(res=>{
           if(res.data.length!==0){
-             setloader(false);
+             setprogress(false);
           }
             setBookFlights(res.data)
             console.log(res.data);
     });
     },[])
+     if(progress){
+        return (
+            <div className="pt-20 relative top-44 flex justify-center">
+                <CircularProgress/>
+            </div>
+        )
+    }
+
+
   return (
     <>
     
      <Header/>
     <div className="flex justify-center pt-20 flex-wrap items-center h-full">
-      {loader && <LinearProgress color="secondary"/>}
       <div className="text-center w-full text-3xl mb-4 font-bold italic text-blue-600">Booked and Cancelled Flights</div>
    <table className="border-collapse border border-black">
   <thead>
