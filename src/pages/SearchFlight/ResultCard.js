@@ -60,8 +60,8 @@ const ResultCard = ({flightdata,a,c,w}) => {
             <span className="text-blue-700 cursor-pointer" onClick={()=>sethideReviews(!hideReviews)}>Read Reviews</span>
         </div>
         {hideReviews && 
-        <div className="w-full  overflow-y-scroll h-40 overflow-x-hidden border-2 mt-4 pb-4 flex flex-wrap ">
-            {flightdata.reviews.map((review)=>{
+        <div className="w-full  overflow-y-scroll h-36 overflow-x-hidden border-2 mt-4 pb-4 flex flex-wrap ">
+            {flightdata.reviews.length!==0 && flightdata.reviews.map((review)=>{
                 return <div key={review._id} className="w-full mt-1">
                     <div className="w-full ml-20">
                         <Rating value={review.rating} size="small"></Rating>
@@ -71,6 +71,9 @@ const ResultCard = ({flightdata,a,c,w}) => {
                     </div>
                 </div>
             })}
+            {flightdata.reviews.length==0 && <div className="w-full ml-20">
+                        <p className="italic text-xl">No reviews yet </p>
+                    </div>}
             
         </div>}
     </div>
