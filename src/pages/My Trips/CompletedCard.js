@@ -23,7 +23,6 @@ function CompletedCard({trip}) {
 }
     const handleSubmit=(e)=>{
         e.preventDefault();
-        console.log({tripid:trip._id,rating,text});
         axios.post("/users/postreview",{tripid:trip._id,rating,text},{
             headers:{
                 'Authorization':firebase.user.uid,
@@ -51,7 +50,7 @@ function CompletedCard({trip}) {
                 setissubmit(false);
             }
         })
-
+        
     },[issubmit])
   return (
     <div className="flight-card">
@@ -60,7 +59,7 @@ function CompletedCard({trip}) {
           <h2>{trip.flightid.departureAirport} - {trip.flightid.arrivalAirport}</h2>
           <p>{trip.booking?.flight[1]!==null?" Round-Trip ":"One-Way "}  Booking ID - {trip.booking?._id}</p>
         </div>
-        {issubmit?<button className="manage-booking font-bold text-xl">Thanks,for review!</button>:<button className="manage-booking font-bold text-xl" onClick={()=>setreview(!review)}>{!review?"Leave a review":"Hide review"}</button>}
+        {issubmit? <button className="manage-booking font-bold text-xl">Thanks,for review!</button>:<button className="manage-booking font-bold text-xl" onClick={()=>setreview(!review)}>{!review?"Leave a review":"Hide review"}</button>}
       </div>
       <div className="flight-details ">
         <div className="departure">
