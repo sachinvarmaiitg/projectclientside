@@ -23,6 +23,7 @@ import BookFlights from "./admin/BookFlights.js";
 import TripsPage from "./pages/My Trips/TripsPage.js";
 import { Avatar, LinearProgress } from "@mui/material";
 import Animatedloader from "./Animatedloader.js";
+import './App.css'
 function App() {
 const firebase=useFirebase()
 const admin=firebase.admin;
