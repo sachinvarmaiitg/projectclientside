@@ -30,7 +30,11 @@ const Upcoming = () => {
         getTrips();
     },[])
     if(progress){
-        return <CircularProgress/>
+        return (
+            <div className="pt-20 relative top-44 flex justify-center">
+                <CircularProgress/>
+            </div>
+        )
     }
   return (
     <div className="pt-20 relative top-44 ">
