@@ -31,7 +31,7 @@ const GetUser = () => {
             {loader && <LinearProgress color="secondary" className="z-90" />}
             <Header />
             {users.map((user, n) => (
-                <Card key={user.uid} className="shadow-md w-96 m-4">
+                <Card key={user.uid} className="shadow-md w-96 m-4 mt-10">
                     <CardContent>
                         <Box display="flex" flexDirection="column" alignItems="center">
                             <Typography variant="h5" component="div">
