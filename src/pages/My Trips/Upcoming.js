@@ -8,10 +8,11 @@ import { CircularProgress } from "@mui/material";
 
 const Upcoming = () => {
     const [trips,setTrips]=useState([]);
+    const [progress,setprogress]=useState(false);
     const firebase=useFirebase();
     const user=firebase.user;
     const getTrips=()=>{
-        firebase.setloader(true);
+        setprogress(true);
         axios.get("/users/getupcomingtrips",{
             headers:{
                 'Content-Type':'application/json',
@@ -20,7 +21,7 @@ const Upcoming = () => {
         })
         .then(res=>{
             setTrips(res.data);
-            firebase.setloader(false);
+            setprogress(false);
     })
         .catch(err=>console.log(err))
         
@@ -28,8 +29,8 @@ const Upcoming = () => {
     useEffect(()=>{
         getTrips();
     },[])
-    if(firebase.loader){
-        return <CircularProgress></CircularProgress>
+    if(progress){
+        return <CircularProgress/>
     }
   return (
     <div className="pt-20 relative top-44 ">
