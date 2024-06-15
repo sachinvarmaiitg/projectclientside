@@ -42,7 +42,6 @@ function CompletedCard({trip}) {
                 'Content-Type':'application/json'
             }
         }).then((res)=>{
-            console.log(res.data);
             if(res.data.length){
                 setissubmit(true);
             } 

@@ -28,9 +28,10 @@ const Completed = () => {
         getTrips();
     },[])
      if(progress){
-        <div className="pt-20 relative top-44 flex justify-center">
+       return( <div className="pt-20 relative top-44 flex justify-center">
                 <CircularProgress/>
         </div>
+       )
     }
   return (
     <div className="pt-20 relative top-44 flex flex-wrap justify-center ">
